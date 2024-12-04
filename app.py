@@ -38,9 +38,6 @@ def predict():
         }
         input_data  =  pd.DataFrame(data)
 
-        # Si la mémoire est en Mo, convertir en Go (si nécessaire)
-        if 'Memory Size' in input_data.columns:
-            input_data['Memory Size']  =  input_data['Memory Size'] / 1024  # Conversion en Go
 
         # Appliquer la mise à l'échelle (scaling) aux nouvelles données
         input_data_scaled  =  scaler.transform(input_data)
