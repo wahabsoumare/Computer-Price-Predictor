@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "fr">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Prédiction de prix</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}">
+</head>
+<body>
+    <div class = "container">
+        <h1>Prédiction du prix d'un ordinateur portable</h1>
+        <form method = "POST" action = "/predict">
+            <label for = "inches">Taille d'écran (pouces) :</label>
+            <input type = "number" id = "inches" name = "Inches" required>
+
+            <label for = "ram">RAM (Go) :</label>
+            <input type = "number" id = "ram" name = "Ram" required>
+
+            <label for = "weight">Poids (kg) :</label>
+            <input type = "number" id = "weight" name = "Weight" required>
+
+            <label for = "screen_width">Largeur de l'écran :</label>
+            <input type = "number" id = "screen_width" name = "Screen Width" required>
+
+            <label for = "screen_height">Hauteur de l'écran :</label>
+            <input type = "number" id = "screen_height" name = "Screen Height" required>
+
+            <label for = "frequency">Fréquence du processeur (GHz) :</label>
+            <input type = "number" step = "0.1" id = "frequency" name = "Frequency" required>
+
+            <label for = "memory_size">Mémoire (Mo) :</label>
+            <input type = "number" id = "memory_size" name = "Memory Size" required>
+
+            <button type = "submit">Prédire le prix</button>
+        </form>
+
+        {% if predicted_price %}
+        <div id = "result">
+            <h2>Prix prédit : {{ predicted_price }}€</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
